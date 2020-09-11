@@ -10,6 +10,26 @@ import java.io.IOException
 import java.io.InputStream
 
 object MediaUtil {
+    /**
+     * 视频是否有音轨
+     */
+    fun videoHasAudioTrack(url: String?):Boolean{
+        var result = false;
+        try {
+            val extractor = MediaExtractor()
+            extractor.setDataSource(filePath)
+            for (i in 0 until extractor.trackCount) {
+                val format: MediaFormat = extractor.getTrackFormat(i)
+                if (format.getString(MediaFormat.KEY_MIME).startsWith("audio/")) {
+                    result = true
+                    return result
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return result;
+    }
 
      fun getAudioDuration(filePath: String): Long {
         try {

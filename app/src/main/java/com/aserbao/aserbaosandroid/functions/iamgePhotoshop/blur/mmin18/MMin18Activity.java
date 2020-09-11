@@ -15,6 +15,10 @@ import com.example.base.utils.data.ASourceUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * blurKit
+ * https://github.com/CameraKit/blurkit-android
+ */
 public class MMin18Activity extends AppCompatActivity {
 
     @BindView(R.id.blur_radius_tv)
