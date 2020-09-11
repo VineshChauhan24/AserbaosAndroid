@@ -17,7 +17,7 @@ object MediaUtil {
         var result = false;
         try {
             val extractor = MediaExtractor()
-            extractor.setDataSource(filePath)
+            extractor.setDataSource(url)
             for (i in 0 until extractor.trackCount) {
                 val format: MediaFormat = extractor.getTrackFormat(i)
                 if (format.getString(MediaFormat.KEY_MIME).startsWith("audio/")) {
